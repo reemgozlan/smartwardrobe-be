@@ -4,8 +4,9 @@ const Item = require("../models/Item");
 
 const addItem = async(req, res) => {
     const {name, brand, category, color, whichPart, matchesWith} = req.body;
+    const {file} = req;
     try{
-        const newItem = await Item.create({name, brand, category, color, whichPart, matchesWith});
+        const newItem = await Item.create({name, brand, category, color, whichPart, matchesWith, image: file.publicUrl});
         res.status(201).json(newItem);
     }
     catch (err) {

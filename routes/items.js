@@ -7,8 +7,9 @@ const {
         updateItem, 
         deleteItem} = require("../controllers/items");
 
+const firebaseUploader = require('../middlewares/upload')
 
-router.route("/items").get(getAllItems).post(addItem);
+router.route("/items").get(getAllItems).post(firebaseUploader.single('image'), addItem);
 
 
 router

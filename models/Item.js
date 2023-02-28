@@ -22,8 +22,11 @@ whichPart: {
 },
 matchesWith: {
     type: Array,
-    require: true,
+    // require: true,
 },
+image: {
+    type: String
+}
 
 });
 

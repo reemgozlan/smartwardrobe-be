@@ -17,7 +17,7 @@ const addOutfit = async(req, res) => {
 };
 const getAllOutfits = async(req, res) =>  {
     try{
-        const outfits = await Outfit.find();
+        const outfits = await Outfit.find().populate('itemReference');
         res.status(200).json(outfits);
     }
     catch(err){
